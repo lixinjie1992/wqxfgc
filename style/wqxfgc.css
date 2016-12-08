@@ -1,0 +1,980 @@
+/*
+ * date: 16.11.23
+ * author: lixinjie
+ * pageWidth: 1003px
+ * mainColor: #1a85e6
+ */
+/* 让 IE 浏览器对不识别的 html5 元素将其当做块元素处理*/
+details, main, summary { display: block; }
+
+/* 设置所有浏览器中外边距不为零的元素的外边距为零 */
+body, h1, h2, h3, h4, h5, h6, p, hr, blockquote, pre, textarea, fieldset, figure, ul, ol, dl, dd, menu { margin: 0; }
+
+/* 设置所有浏览器中内填充不为零的元素的内填充为零 */
+input, textarea, button, select, option, fieldset, legend, ul, ol, menu, th, td { padding: 0; }
+
+/* 设置所有浏览器中边框不为零的元素的边框为零 */
+hr, progress, input, textarea, button, select, fieldset { border: 0; }
+
+/* 设置所有元素的盒模型，将内填充和边距算在宽或高之内 */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+/* 为 body 元素设置字体尺寸和类型 */
+body {
+  font-size: 16px;
+  color: #909090;
+  font-family: "Microsoft Yahei", Arial, sans-serif;
+}
+
+/* 在 IE 9 及低版本浏览器中为下列元素设置为 inline-block 的显示方式 */
+audio,
+canvas,
+progress,
+video { display: inline-block; }
+
+/* 在 iOS 4-7 中为无 controls属性的 audio 元素添加正确的显示方式 */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* 在 Chrome, Firefox 和 Opera 中设置垂直方向基线对齐方式  */
+progress { vertical-align: baseline; }
+
+/* 1. 在 IE 中添加正确的显示方式 */
+template, /* 1 */
+[hidden] { display: none; }
+
+/* ===链接=== */
+/**
+ * 1. 在 IE 10 中移除链接被激活后的灰色背景
+ * 2. 在 iOS 8+ 和 Safari 8+ 中删除链接下划线位置处的空白
+ */
+a {
+  color: #666;
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+  text-decoration: none;
+}
+
+/* 当链接处于焦点、被激活和鼠标悬停其上时清除轮廓 */
+a:focus,
+a:active,
+a:hover { outline-width: 0; }
+
+/* ===文本=== */
+/**
+ * 1. 在 Firefox 39 及之前的版本中移除 abbr 元素的下边框
+ * 2. 在 Chrome, Edge, IE, Opera 和 Safari 中为 abbr 元素添加下划线
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+}
+
+/* 在 Safari 6 中防止下列元素通过后面的规则重复的应用程序的字体为粗体 */
+b,
+strong { font-weight: inherit; }
+
+/* 在 Chrome, Edge 和 Safari 浏览器中为下列元素添加正确的字体粗细 */
+b,
+strong { font-weight: bolder; }
+
+/* 在 Android 4.3 及之前系统的设备中的浏览器为下列元素添加字体风格为斜体 */
+dfn { font-style: italic; }
+
+/* 在 IE 9 及之前的浏览器版本中为 mark 元素添加背景颜色和字体颜色 */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/* 为 small 元素设置字体尺寸，为离其最近的含有 font-size 属性的祖先元素的值的 80% */
+small { font-size: 80%; }
+
+/* 防止 sub 和 sup 元素影响行高 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+/* ===嵌入式内容=== */
+/* 在 IE 10 及更早的浏览器中当图片处于链接内部时移除图片的边框 */
+img { border-style: none; }
+
+/* 在 IE 浏览器中当 svg 元素不是根元素时隐藏溢出 */
+svg:not(:root) { overflow: hidden; }
+
+/* ===分组内容=== */
+/* 1. 纠正字体尺寸的继承和缩放(momospace字体是linux系统下的默认字体)
+ * 2. 在所有浏览器中纠正奇数的以 em 作为单位的字体尺寸
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* 在 IE 8 浏览器下为 figure 元素添加适当的外边距 */
+/* figure { margin: 1em 40px; } */
+
+/**
+ * 1. 在 Firefox 浏览器下为 hr 元素添加正确的和模型尺寸计算方式
+ * 2. 在 Edge 和 IE 中 hr 元素溢出时不隐藏
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/* ===表单=== */
+/**
+ * 1. 改变字体属性为继承
+ * 2. 在 Firefox 和 Safari 中为下列元素移除外边距
+ */
+button,
+input,
+select,
+textarea {
+  font: inherit; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/* 通过之前的规则修复 optgroup 元素的字体粗细 */
+optgroup { font-weight: bold; }
+
+/* 溢出时不隐藏 */
+button,
+input { overflow: visible; }
+
+/* 移除文本大小写的继承 */
+button,
+select { text-transform: none; }
+
+/**
+ * 1. 在 Android 4 系统版本中阻止破坏本地的音频视频控件的错误
+ * 2. 在 iOS 和 Safari 中纠正不能点击的类型
+ */
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button; /* 2 */ 
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ * 在 Firefox 中移除内部边框和内填充(firefox浏览器中button元素点击时会出现虚线边框)
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+input:focus,
+button:focus,
+textarea:focus { outline: none; }
+button {
+  background-color: transparent;  /* 去掉 button 的背景颜色 */
+}
+
+/* 由先前的规则恢复焦点样式设置 */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+
+/* 设置 fieldset 元素的 border, margin 和 padding 属性的值 */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. 在 Edge 和 IE 中纠正文本包裹
+ * 2. 纠正在 IE 中从 fieldset 元素继承而来的颜色值
+ * 3. 在所有浏览器中当开发者清零了 fieldset 元素的属性时，移除 padding 属性的值，以便他们能找出其它错误
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/* 在 IE 浏览器中移除默认的垂直导航条 */
+textarea { overflow: auto; }
+
+/* 在 IE 10 及之前的浏览器中改变盒模型的默认规则，即将内填充和边框也算在宽高之内 */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* 纠正在 Chrome 浏览器中递增和递减按钮的光标样式 */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button { height: auto; }
+
+/**
+ * 1. 纠正 Chrome 和 Safari 浏览器奇怪的外观（看上去像文本框）
+ * 2. 纠正在 Safari 浏览器中的轮廓样式（设置轮廓的偏移）
+ */
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/* 在 OS X 的 Chrome 和 Safari 浏览器中删除内填充和移除按钮 */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/* 纠正在 Chrome, Edge 和 Safari 中文本占位符属性的样式 */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * 1. 纠正在 iOS 和 Safair 中可点击类型不能点击的样式
+ * 2. 更改字体属性，在 Safari 中以继承的方式。
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* ===表格=== */
+/**
+ * 设置表格的边框合并为单一的边框，
+ * border-collapse 属性会忽略 border-spacing(相邻单元格边框间的距离) 属性和 empty-cells(是否在空单元格周围绘制边框)
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th { text-align: left; }
+
+/* ===列表=== */
+/* 设置列表的标记类型为无 */
+ol,
+ul,
+li { list-style-type: none; }
+
+/* ===关于浮动=== */
+/* 快速浮动 */
+.fl { float: left; }
+.fr { float: right; }
+
+/* 为添加了 clearfix 类名的元素清除浮动 */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after { clear: both; }
+
+/* ===基础设置=== */
+figure,
+figure.logo { overflow: hidden; }
+figure.logo > a { display: block; }
+figure > img,
+figure.logo > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container {
+	width: 1003px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*头部*/
+header {
+	padding-top: 15px;
+	border-bottom: 1px solid #167ee0;
+}
+header figure { margin-top: 8px; }
+.tel { margin-bottom: 7px; }
+.telphone {
+	display: block;
+	height: 20px;
+	float: right;
+	margin-right: 20px;
+}
+.nav { height: 56px; }
+.nav ul {
+	position: relative;
+	width: 740px;
+	height: 56px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #177EE1 url("../img/nav-bg.png") repeat-y;
+}
+.nav ul:before {
+	content: "";
+	position: absolute;
+	left: -116px;
+	top: 0;
+	width: 116px;
+	height: 56px;
+	background: url("../img/nav-bg2.png") no-repeat;
+}
+.nav ul li { float: left; }
+.nav ul li a {
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: 5px;
+	margin-left: 5px;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 15px;
+}
+.nav ul li a:hover,
+.nav ul li a.active {
+	background-color: #fff;
+	color: #1a87e7;
+}
+/*banner*/
+
+main > div { margin-top: 10px; }
+.item-heading {
+	height: 55px;
+	line-height: 54px;
+	border-bottom: 1px solid #dfdfdf;
+	margin-bottom: 10px;
+}
+.item-heading h2 {
+	float: left;
+	height: 54px;
+	line-height: 54px;
+}
+.item-heading h2 em {
+	display: block;
+	float: left;
+	font-style: normal;
+}
+.item-heading h2 em:first-of-type {
+	font-size: 14px;
+	color: #909090;
+	margin-right: 5px;
+}
+.item-heading h2 em:last-of-type {
+	font-size: 8px;
+	color: #909090;
+	text-transform: uppercase;
+}
+.item-heading h2 em:last-of-type span {
+	font-size: 14px;
+	color: #a06a3e;
+}
+.item-heading a {
+	display: block;
+	float: right;
+	font-size: 12px;
+	height: 54px;
+	line-height: 54px;
+}
+.item-heading a:hover {
+	color: #a67650;
+}
+/*企业资质*/
+.qualification {
+	width: 230px;
+}
+.qualification ul li {
+	float: left;
+	width: 230px;
+}
+.qualification ul li img {
+	display: block;
+	width: 166px;
+	height: 220px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*公司简介*/
+.introduction {
+	width: 41%;
+	margin-left: 3%;
+}
+.introduction .content {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 2;
+	max-height: 244px;
+	overflow: hidden;
+}
+.introduction .content img {
+	width: 113px;
+	height: 83px;
+	float: left;
+	margin-right: 15px;
+}
+
+/*联系我们*/
+.contact {
+	width: 30%;
+	margin-left: 3%;
+}
+.contact .content {
+	position: relative;
+}
+.contact .content img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 113px;
+	height: 132px;
+}
+.contact-info {
+	padding-left: 130px;
+	font-size: 12px;
+	font-family: "宋体";
+}
+.contact-info p {
+	line-height: 1.6;
+	margin-bottom: 7px;
+}
+.contact-info p:last-of-type {
+	margin-bottom: 0;
+}
+
+/*产品分类*/
+.categories {
+	width: 23%;
+}
+.categories ul li a {
+	position: relative;
+	display: block;
+	height: 24px;
+	margin-bottom: 6px;
+	padding-left: 14px;
+	line-height: 24px;
+	font-size: 13px;
+	color: #909090;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.categories ul li a:before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	content: "";
+	width: 6px;
+	height: 6px;
+	line-height: 24px;
+	margin-top: -3px;
+	border-radius: 50%;
+	background-color: #a67650;
+}
+.categories ul li:last-of-type a {
+	margin-bottom: 0;
+}
+.categories ul li a:hover,
+.categories ul li a.active {
+	color: #a67650;
+}
+
+/*产品和案例*/
+.product-case {
+	width: 744px;
+}
+/*产品*/
+.product-list {
+	width: 744px;
+	overflow: hidden;
+}
+.product-list li {
+	float: left;
+	width: 170px;
+	margin: 8px;
+}
+.product-list li a {
+	display: block;
+	width: 170px;
+	padding: 2px 1px 10px;
+	border: 1px solid #e1e1e1;
+}
+.product-list li a img {
+	width: 166px;
+	height: 110px;
+}
+.product-list li a h4 {
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+/*案例*/
+.case {
+	margin-top: 15px;
+	width: 744px;
+	overflow: hidden;
+}
+.case-list li {
+	float: left;
+	width: 170px;
+	margin: 8px;
+}
+.case-list li a {
+	display: block;
+	width: 170px;
+	padding: 2px 1px 10px;
+	border: 1px solid #e1e1e1;
+}
+.case-list li a img {
+	width: 166px;
+	height: 110px;
+}
+.case-list li a h4 {
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+/*页尾*/
+footer {
+	margin-top: 30px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	background-color: #f7f7f7;
+}
+footer small {
+	display: block;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	line-height: 1.8;
+}
+
+/*===产品===*/
+.contact-categories {
+	width: 224px;
+}
+.product-contact .content p {
+	position: relative;
+	margin-bottom: 10px;
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	padding-left: 20px;
+}
+.product-contact .content p:last-of-type {
+	margin-bottom: 0;
+}
+.product-contact .content p:before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	content: "";
+	width: 6px;
+	height: 6px;
+	margin-top: -3px;
+	border-radius: 50%;
+	background-color: #a67650;
+}
+/*产品分类*/
+.product-categories {
+	margin-top: 15px;
+}
+.product-categories ul li a {
+	position: relative;
+	display: block;
+	height: 24px;
+	margin-bottom: 6px;
+	padding-left: 14px;
+	line-height: 24px;
+	font-size: 13px;
+	color: #909090;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.product-categories ul li a:before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	content: "";
+	width: 6px;
+	height: 6px;
+	margin-top: -3px;
+	border-radius: 50%;
+	background-color: #a67650;
+}
+.product-categories ul li:last-of-type a {
+	margin-bottom: 0;
+}
+.product-categories ul li a:hover {
+	color: #a67650;
+}
+/*分页*/
+.pagination-wrap {
+	margin-top: 30px;
+	text-align: center;
+}
+.pagination {
+    display: inline-block;
+    text-align: center;
+}
+.pagination:before,
+.pagination:after {
+    display: table;
+    content: "";
+}
+.pagination:after { clear: both; }
+.pagination {
+    display: inline-block;
+    text-align: center;
+}
+/*根据dedecms模板需要，更改下面样式*/
+.pagination > li {
+	float: left;
+    display: block;
+    margin-left: -1px; /*消除两个 a 在一起时引起的双倍左外边距*/
+    height: 30px;
+    line-height: 28px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid #ddd;	
+}
+.pagination > li:first-child {
+    margin-left: 0; /*第一个 li 不需要消除左外边距*/
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.pagination > li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.pagination > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #e04728;
+    background-color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.pagination > li {
+    z-index: 3;
+    cursor: default;
+    color: #e04728;
+}
+.pagination > li.thisclass {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #e04728;
+    border-color: #e04728;
+}
+.pagination > li > select {
+	display: inline-block;
+    margin-left: -1px; /*消除两个 a 在一起时引起的双倍左外边距*/
+    border: 1px solid #ddd;
+    height: 30px;
+    line-height: 28px;
+    padding-right: 15px;
+    padding-left: 15px;
+	color: #e04728;
+}	
+.pagination > li > select option {
+	display: block;
+	text-align: center;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.pagination > li > select option[selected] {
+	color: #fff;
+	background-color: #e04728;
+}
+.pagination > li > select option:hover { background-color: #eee; }
+
+/*===产品详情===*/
+.product-info-intro img {
+	width: 325px;
+	height: 215px;
+	padding: 4px;
+	border: 1px solid #e1e1e1;
+}
+.product-info-intro .text {
+	width: 400px;
+}
+.product-info-intro .text h3 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #2e3840;
+	line-height: 1.8;
+	margin-bottom: 15px;
+}
+.intro-text li {
+	position: relative;
+	margin-bottom: 15px;
+	line-height: 24px;
+}
+.intro-text li:last-of-type {
+	margin-bottom: 0;
+}
+.intro-text li strong {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 50px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	background-color: #eee;
+	font-size: 12px;
+	color: #444;
+}
+.intro-text li p {
+	padding-left: 60px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #444;
+}
+.product-info-details {
+	font-size: 14px;
+	color: #565656;
+	line-height: 1.7;
+	margin-top: 25px;	
+	margin-bottom: 40px;
+}
+.product-info-details p {
+	text-indent: 2.2em;
+	letter-spacing: .1em;
+	margin-bottom: 15px;
+}
+/*上一篇、下一篇*/
+.pre-next li {
+	width: 48%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.pre-next .pre {
+	float: left;
+	text-align: right;
+}
+.pre-next .next {
+	float: right;
+	text-align: left;
+}
+.pre-next li a {
+	padding-right: 8px;
+	padding-left: 8px;
+}
+.pre-next li a:hover {
+	color: #ef4526;
+}
+/*产品展示*/
+.product {
+	width: 744px;
+}
+/*公司简介*/
+.company-profile {
+	width: 744px;
+}
+.company-profile article {
+	font-size: 12px;
+	font-family: "宋体";
+	line-height: 2;
+	letter-spacing: .1em;
+}
+.company-profile article img {
+	float: left;
+	margin-right: 18px;
+}
+.profile-list {
+	margin-top: 50px;
+	width: 744px;
+	overflow: hidden;
+}
+.profile-list li {
+	float: left;
+	width: 170px;
+	margin: 8px;
+}
+.profile-list li a {
+	display: block;
+	width: 170px;
+	padding: 2px 1px 10px;
+	border: 1px solid #e1e1e1;
+}
+.profile-list li a img {
+	width: 166px;
+	height: 110px;
+}
+.profile-list li a h4 {
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+
+/*===企业文化===*/
+.culture-list {
+	width: 744px;
+	overflow: hidden;
+}
+.culture-list li {
+	float: left;
+	width: 170px;
+	margin: 8px;
+}
+.culture-list li a {
+	display: block;
+	width: 170px;
+	padding: 2px 1px 10px;
+	border: 1px solid #e1e1e1;
+}
+.culture-list li a img {
+	width: 166px;
+	height: 110px;
+}
+.culture-list li a h4 {
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+
+/*===企业资质===*/
+.certificate {
+	width: 744px;
+}
+.certificate-list {
+	width: 744px;
+	overflow: hidden;
+}
+.certificate-list li {
+	float: left;
+	width: 170px;
+	margin: 8px;
+}
+.certificate-list li a {
+	display: block;
+	width: 170px;
+	padding: 2px 1px 10px;
+	border: 1px solid #e1e1e1;
+}
+.certificate-list li a img {
+	width: 166px;
+	height: 220px;
+}
+.certificate-list li a h4 {
+	margin-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+
+/*===企业资质证书详情===*/
+.certificate-details {
+	margin-top: 25px;
+}
+.certificate-details h4 {
+	font-size: 16px;
+	line-height: 1.8;
+	text-align: center;
+	color: #909090;
+}
+.certificate-details img {
+	display: block;
+	max-width: 744px;
+	height: auto;
+	margin: 20px auto;
+}
+
+/*===案例详情===*/
+.case-info {
+	margin-top: 20px;
+}
+.case-info h3 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #2e3840;
+	line-height: 1.8;
+	margin-bottom: 15px;
+	text-align: center;	
+}
+.case-info img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+.case-info-details {
+	font-size: 14px;
+	color: #565656;
+	line-height: 1.7;
+	margin-top: 25px;	
+	margin-bottom: 40px;
+}
+.case-info-details p {
+	text-indent: 2.2em;
+	letter-spacing: .1em;
+	margin-bottom: 15px;
+}
